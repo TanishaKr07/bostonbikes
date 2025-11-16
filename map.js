@@ -71,6 +71,8 @@ function getCoords(station) {
   const point = new mapboxgl.LngLat(+station.lon, +station.lat); // Convert lon/lat to Mapbox LngLat
   const { x, y } = map.project(point); // Project to pixel coordinates
   return { cx: x, cy: y }; // Return as object for use in SVG attributes
+
+
 }
 // Append circles to the SVG for each station
 const circles = svg
@@ -101,3 +103,4 @@ map.on('move', updatePositions); // Update during map movement
 map.on('zoom', updatePositions); // Update during zooming
 map.on('resize', updatePositions); // Update on window resize
 map.on('moveend', updatePositions); // Final adjustment after movement ends
+
